@@ -52,9 +52,6 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        printf("Button state: %d\n", digitalRead(BUTTON_PIN));
-        continue;
-
         if (digitalRead(BUTTON_PIN) == LOW && !buttonPressed)
         {
             printf("Button pressed\n");
