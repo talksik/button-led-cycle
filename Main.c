@@ -1,7 +1,7 @@
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <wiringPi.h>
-#include <stdbool.h>
 
 // these are based on the wiringPi pin numbers
 #define YELLOW_PIN 26 // GPIO 12
@@ -44,6 +44,10 @@ int main(int argc, char *argv[])
     pullUpDnControl(BUTTON_PIN, PUD_UP);
 
     enum LED_STATE ledState = BLANK;
+    digitalWrite(YELLOW_PIN, LOW);
+    digitalWrite(GREEN_PIN, LOW);
+    digitalWrite(BLUE_PIN, LOW);
+    digitalWrite(RED_PIN, LOW);
     bool buttonPressed = false;
 
     while (1)
