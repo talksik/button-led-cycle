@@ -57,6 +57,7 @@ int main(int argc, char *argv[])
             printf("Button pressed\n");
             ledState = (ledState + 1) % NUM_LEDS;
             buttonPressed = true;
+            delay(100);
         }
         else
         {
