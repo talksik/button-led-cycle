@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
     pinMode(RED_PIN, OUTPUT);
 
     pinMode(BUTTON_PIN, INPUT);
+    pullUpDnControl(BUTTON_PIN, PUD_UP);
 
     enum LED_STATE ledState = BLANK;
 
