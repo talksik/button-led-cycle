@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <wiringPi.h>
+#include <stdbool.h>
 
 // these are based on the wiringPi pin numbers
 #define YELLOW_PIN 26 // GPIO 12
@@ -43,15 +44,18 @@ int main(int argc, char *argv[])
     pullUpDnControl(BUTTON_PIN, PUD_UP);
 
     enum LED_STATE ledState = BLANK;
+    bool buttonPressed = false;
 
     while (1)
     {
-        if (digitalRead(BUTTON_PIN) == LOW)
+        if (digitalRead(BUTTON_PIN) == LOW && !buttonPressed)
         {
             ledState = (ledState + 1) % NUM_LEDS;
+            buttonPressed = true;
         }
         else
         {
+            buttonPressed = false;
             continue;
         }
 
