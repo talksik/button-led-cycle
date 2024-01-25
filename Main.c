@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
     {
         if (digitalRead(BUTTON_PIN) == LOW && !buttonPressed)
         {
+            printf("Button pressed\n");
             ledState = (ledState + 1) % NUM_LEDS;
             buttonPressed = true;
         }
