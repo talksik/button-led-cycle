@@ -57,51 +57,52 @@ int main(int argc, char *argv[])
             printf("Button pressed\n");
             ledState = (ledState + 1) % NUM_LEDS;
             buttonPressed = true;
-            delay(100);
+
+            printf("LED state: %d\n", ledState);
+
+            switch (ledState)
+            {
+            case BLANK:
+                digitalWrite(YELLOW_PIN, LOW);
+                digitalWrite(GREEN_PIN, LOW);
+                digitalWrite(BLUE_PIN, LOW);
+                digitalWrite(RED_PIN, LOW);
+                break;
+            case YELLOW:
+                digitalWrite(YELLOW_PIN, HIGH);
+                digitalWrite(GREEN_PIN, LOW);
+                digitalWrite(BLUE_PIN, LOW);
+                digitalWrite(RED_PIN, LOW);
+                break;
+            case GREEN:
+                digitalWrite(YELLOW_PIN, LOW);
+                digitalWrite(GREEN_PIN, HIGH);
+                digitalWrite(BLUE_PIN, LOW);
+                digitalWrite(RED_PIN, LOW);
+                break;
+            case BLUE:
+                digitalWrite(YELLOW_PIN, LOW);
+                digitalWrite(GREEN_PIN, LOW);
+                digitalWrite(BLUE_PIN, HIGH);
+                digitalWrite(RED_PIN, LOW);
+                break;
+            case RED:
+                digitalWrite(YELLOW_PIN, LOW);
+                digitalWrite(GREEN_PIN, LOW);
+                digitalWrite(BLUE_PIN, LOW);
+                digitalWrite(RED_PIN, HIGH);
+                break;
+            default:
+                break;
+            }
+
+            delay(500);
         }
         else
         {
             printf("UNpressed\n");
             buttonPressed = false;
             continue;
-        }
-
-        printf("LED state: %d\n", ledState);
-
-        switch (ledState)
-        {
-        case BLANK:
-            digitalWrite(YELLOW_PIN, LOW);
-            digitalWrite(GREEN_PIN, LOW);
-            digitalWrite(BLUE_PIN, LOW);
-            digitalWrite(RED_PIN, LOW);
-            break;
-        case YELLOW:
-            digitalWrite(YELLOW_PIN, HIGH);
-            digitalWrite(GREEN_PIN, LOW);
-            digitalWrite(BLUE_PIN, LOW);
-            digitalWrite(RED_PIN, LOW);
-            break;
-        case GREEN:
-            digitalWrite(YELLOW_PIN, LOW);
-            digitalWrite(GREEN_PIN, HIGH);
-            digitalWrite(BLUE_PIN, LOW);
-            digitalWrite(RED_PIN, LOW);
-            break;
-        case BLUE:
-            digitalWrite(YELLOW_PIN, LOW);
-            digitalWrite(GREEN_PIN, LOW);
-            digitalWrite(BLUE_PIN, HIGH);
-            digitalWrite(RED_PIN, LOW);
-            break;
-        case RED:
-            digitalWrite(YELLOW_PIN, LOW);
-            digitalWrite(GREEN_PIN, LOW);
-            digitalWrite(BLUE_PIN, LOW);
-            digitalWrite(RED_PIN, HIGH);
-            break;
-        default:
-            break;
         }
     }
 
