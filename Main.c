@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        if (digitalRead(BUTTON_PIN) == HIGH)
+        if (digitalRead(BUTTON_PIN) == LOW)
         {
             ledState = (ledState + 1) % NUM_LEDS;
         }
