@@ -54,6 +54,8 @@ int main(int argc, char *argv[])
             continue;
         }
 
+        printf("LED state: %d\n", ledState);
+
         switch (ledState)
         {
         case BLANK:
