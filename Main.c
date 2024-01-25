@@ -60,6 +60,7 @@ int main(int argc, char *argv[])
         }
         else
         {
+            printf("UNpressed\n");
             buttonPressed = false;
             continue;
         }
